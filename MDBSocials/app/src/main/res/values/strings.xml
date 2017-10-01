@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">MDBSocials</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_list">ListActivity</string>
+    <string name="title_activity_new_message">NewMessageActivity</string>
 </resources>

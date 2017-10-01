@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1079744724918",
+    "firebase_url": "https://mdbsocials2017.firebaseio.com",
+    "project_id": "mdbsocials2017",
+    "storage_bucket": "mdbsocials2017.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079744724918:android:2b5bcbabe34cebf0",
+        "android_client_info": {
+          "package_name": "com.swethapraba.mdbsocials"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1079744724918-90gujcakpgn63t2o33jr875gbn3acutr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.swethapraba.mdbsocials",
+            "certificate_hash": "9e4335514e88adb5e7c16b7624d80486d806d074"
+          }
+        },
+        {
+          "client_id": "1079744724918-r33tcdl19ffue1iqechf8jsm7h98c54t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAIXV4zWUoAsCG4rN1WDbFxr66gDkn_C4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1079744724918-r33tcdl19ffue1iqechf8jsm7h98c54t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
