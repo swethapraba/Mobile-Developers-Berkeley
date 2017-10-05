@@ -34,6 +34,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHold
     {
         this.context = context;
         this.data = data;
+        System.out.println(data.size());
     }
 
     @Override
@@ -43,28 +44,32 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHold
 
         final CustomViewHolder holder = new ListAdapter.CustomViewHolder(view);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                String name = holder.msgView.getText().toString();
-                Intent intent = new Intent(view.getContext(),EventDetails.class);
-                intent.putExtra("Name",name);
-                intent.putExtra("Date",Message.getEventDate().toString()); //bugs here
-                intent.putExtra("Description",Message.getDescription().toString()); //bugs here
-                intent.putExtra("Interest", Message.getInterest()); //this is buggy
-                context = view.getContext();
-                context.startActivity(intent);
-            }
-        });
         return new CustomViewHolder(view);
     }
 
     public void onBindViewHolder(final CustomViewHolder holder, int position)
     {
-        Message m = data.get(position);
-        holder.msgView.setText(m.message);
+        final Message m = data.get(position);
+        holder.msgView.setText(m.getName());//message);
+        holder.emailfield.setText(m.getHost());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                //String name = holder.msgView.getText().toString();
+                Intent intent = new Intent(view.getContext(),EventDetails.class);
+                intent.putExtra("Name",m.message);
+                intent.putExtra("Email",m.getHost());
+                intent.putExtra("Date",m.getEventDate().toString()); //bugs here
+                intent.putExtra("Description",m.getDescription().toString()); //bugs here
+                intent.putExtra("Interest", m.getInterest()); //this is buggy
+                context = view.getContext();
+                context.startActivity(intent);
+            }
+        });
+
         class DownloadFilesTask extends AsyncTask<String, Void, Bitmap> {
             protected Bitmap doInBackground(String... strings) {
                 try {return Glide.
@@ -104,11 +109,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHold
     class CustomViewHolder extends RecyclerView.ViewHolder {
         TextView msgView;
         ImageView imageView;
+        TextView emailfield;
 
         public CustomViewHolder (View view) {
             super(view);
             this.msgView = (TextView) view.findViewById(R.id.msgView);
             this.imageView = (ImageView) view.findViewById(R.id.imageView);
+            this.emailfield = (TextView) view.findViewById(R.id.email);
         }
     }
 }

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -44,7 +45,7 @@ public class EventDetails extends AppCompatActivity
         eventDate = intent.getStringExtra("Date");
         eventDescription = intent.getStringExtra("Description");
 
-        message = new Message(eventName,"https://google.com/testing",eventDate,eventDescription,0);
+        message = new Message(eventName,"https://google.com/testing",eventDate,eventDescription,0, FirebaseAuth.getInstance().getCurrentUser().getEmail());
         //getting data from Firebase is a disaster
         //ImageView image = (ImageView) findViewById(R.id.eventPic);
         //String portraitString = "";

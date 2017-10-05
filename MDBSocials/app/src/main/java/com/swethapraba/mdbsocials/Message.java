@@ -12,16 +12,26 @@ public class Message {
     private String eventDate;
     private String description;
     private int interested;
+    private String creators;
 
-    public Message(String message, String firebaseImageUrl,String date, String describe,int interest)
+    public Message()
+    {
+
+    }
+
+    public Message(String message, String firebaseImageUrl,String date, String describe,int interest,String creator)
     {
         this.message = message;
         this.firebaseImageUrl = firebaseImageUrl;
         this.eventDate = date;
         this.description = describe;
         setInterest(interest);
+        this.creators = creator;
     }
 
+    public String getName(){
+        return message;
+    }
     public String getEventDate()
     {
         return eventDate;
@@ -40,5 +50,8 @@ public class Message {
     public int getInterest()
     {
         return interested;
+    }
+    public String getHost() {
+        return creators;
     }
 }
