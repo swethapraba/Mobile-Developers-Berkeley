@@ -52,9 +52,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHold
         final Message m = data.get(position);
         holder.msgView.setText(m.getName());//message);
         holder.emailfield.setText(m.getHost());
-
+        System.out.print("hello message name is" + m.getName());
         holder.itemView.setOnClickListener(new View.OnClickListener()
         {
+            //bugs - clciking on the event does not expand the details page
             @Override
             public void onClick(View view)
             {
@@ -67,8 +68,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.CustomViewHold
                 intent.putExtra("Interest", m.getInterest()); //this is buggy
                 context = view.getContext();
                 context.startActivity(intent);
+                ///Glide.with(context).load(/**/).asBitmap().into(100, 100).get();
             }
         });
+
 
         class DownloadFilesTask extends AsyncTask<String, Void, Bitmap> {
             protected Bitmap doInBackground(String... strings) {

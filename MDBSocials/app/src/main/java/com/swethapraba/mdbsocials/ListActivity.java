@@ -26,15 +26,16 @@ public class ListActivity extends AppCompatActivity
     //private RecyclerView eventsList;
     //private RecyclerView.LayoutManager listLayout;
     //private ListAdapter adaptList;
-
+    RecyclerView recyclerAdapter;
+    ListAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
-        RecyclerView recyclerAdapter = (RecyclerView)findViewById(R.id.recyclerView);
+        recyclerAdapter = (RecyclerView)findViewById(R.id.recyclerView);
         recyclerAdapter.setLayoutManager(new LinearLayoutManager(this));
-        ListAdapter adapter = new ListAdapter(getApplicationContext(), getList());
+        adapter = new ListAdapter(getApplicationContext(), getList());
         recyclerAdapter.setAdapter(adapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -61,9 +62,9 @@ public class ListActivity extends AppCompatActivity
                     Message m = child.getValue(Message.class);
                     System.out.println(m.getHost());
                     messages.add(m);
-
                     Log.d("list length", messages.size()+"");
                 }
+                adapter.notifyDataSetChanged();
             }
 
             @Override
